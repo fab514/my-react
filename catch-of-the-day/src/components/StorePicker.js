@@ -1,6 +1,8 @@
 import React from "react";
 import { getFunName } from "../helpers";
 
+// StorePicker is a componant for the store name creator. 
+
 class StorePicker extends React.Component {
     myInput = React.createRef();
     // Use ref in react allows us to reference dom nodes on the page
@@ -14,7 +16,6 @@ class StorePicker extends React.Component {
         this.props.history.push(`/store/${storeName}`);
     };
 
-    
     render() { // method put inside of a componant
         return (
             <form className="store-selector" onSubmit={this.goToStore}>

@@ -5,6 +5,7 @@ import Inventory from "./Inventory";
 import sampleFishes from "../sample-fishes";
 import Fish from "./Fish";
 
+// App.js is our Parent Componant and the menu for the Catch-Of-The-Day application
 class App extends React.Component {
     // methods of the state and the state needs to be in the same component
     state = {

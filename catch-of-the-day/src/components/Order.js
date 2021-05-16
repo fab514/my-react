@@ -1,6 +1,7 @@
 import React from "react";
 import { formatPrice } from "../helpers";
 
+// Order.js is a componant used for the order section of application.
 class Order extends React.Component {
     renderOrder = (key) => {
         const fish = this.props.fishes[key];

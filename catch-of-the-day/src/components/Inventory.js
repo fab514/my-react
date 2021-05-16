@@ -1,6 +1,7 @@
 import React from "react";
 import AddFishForm from './AddFishForm';
 
+// Inventory.js is a componant for the inventory section of application
 class Inventory extends React.Component {
     render() {
         return (
