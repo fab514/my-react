@@ -107,6 +107,52 @@ constructor() { // A constructor is one way to bind
     }
 
 ```
+## events
+- events are the same as in JS however it is used as inline or can be referenced. For reference see lines 7, 10-17, and 26 in StorePicker.js
+
+```js
+handleClick() {
+    alert("Hey!!");
+}
+// Event declaring should be outside render()
+render() {
+   <button onClick={this.handleClick}>Click ME</button> 
+}
+
+```
+## Binding
+- There are methods that already are bound to react such as rendor and certain Life cycle events such as componantDidMount. These are easily accessible
+- componantDidMount() runs when the page loads and something is mounted on the page. If you console.log(this) it will show the componant where it was called. 
+- methods that create using extends are not as easy to access because they are not bounded to anything
+- In order for you to use this on the componant you need... You can bind your own methods
+```js
+class StorePicker extends React.Componant {
+    // this will equal to the bound of the componant
+    constructor() {
+        super();
+        this.goToStore = this.goToStore.bind(this);
+    }
+}
+```
+- or you can declare a property that is set to an arrow function that will be bound to the instance instead of nothing. 
+```js
+ goToStore = event => {
+        // 1. Stop the form from submitting
+        event.preventDefault(); 
+        // 2. Get the text from the input 
+        const storeName = this.myInput.current.value;
+        // 3. Change the page to /store/whatever-they-entered
+        this.props.history.push(`/store/${storeName}`);
+};
+```
+
+
+## Life Cycle Events
+- Tells us when certain thing are happening. 
+- componantDidMount(): runs when the app is mounted on the Dom
+- componantWillUnmount(): runs when the a is no longer showing
+- componantDidUpdate(): runs immediately after updating has occured. No parameters used in componentDidUpdate.
+
 ## State 
 - an object that lives inside of a componant that stores the data that itself and it's children needs. 
 - Don't touch the dom
@@ -192,3 +238,10 @@ class Order extends React.Component {
     }
 
 }
+
+```
+
+## React will not allow you to do 2 different forms of state. It will stop you from inserting new text. Refer to video 20
+
+ 
+
