@@ -10,7 +10,6 @@ class EditFishForm extends React.Component {
             [event.currentTarget.name]: event.currentTarget.value // takes original fish and updates changes
         };
         this.props.updateFish(this.props.index, updatedFish)
-        // 2. 
     };
     render() {
         return <div className="fish-edit">
@@ -20,8 +19,18 @@ class EditFishForm extends React.Component {
                 <option value="available">Fresh!</option>
                 <option value="unavailable">Sold Out!</option>
             </select>
-            <textarea name="desc" onChange={this.handleChange} value={this.props.fish.desc} />
-            <input type="text" name="image" onChange={this.handleChange} value={this.props.fish.image} />
+            <textarea 
+                name="desc" 
+                onChange={this.handleChange} 
+                value={this.props.fish.desc}
+            />
+            <input 
+                type="text" 
+                name="image" 
+                onChange={this.handleChange} 
+                value={this.props.fish.image} 
+            />
+            <button onClick={() => this.props.deleteFish(this.props.index)}>Remove Fish</button> 
         </div>
     }
 }
