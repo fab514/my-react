@@ -26,9 +26,11 @@ class Order extends React.Component {
     }
     render() {
         const orderIds = Object.keys(this.props.order);
+        // reduce can be used to tally up the fishes
         const total = orderIds.reduce((prevTotal, key) => {
            const fish = this.props.fishes[key];
            const count = this.props.order[key];
+           // make sure there is a fish and it is available
            const isAvailable = fish && fish.status === 'available';
            if(isAvailable) {
                return prevTotal + (count * fish.price);

@@ -1,6 +1,8 @@
 import React from "react";
 
 class AddFishForm extends React.Component {
+  // Pull values from every input.
+  // Let react manage rendering the dom, createRef works with react manage rendering systems
   nameRef = React.createRef();
   priceRef = React.createRef();
   statusRef = React.createRef();

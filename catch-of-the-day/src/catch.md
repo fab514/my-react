@@ -242,6 +242,19 @@ class Order extends React.Component {
 ```
 
 ## React will not allow you to do 2 different forms of state. It will stop you from inserting new text. Refer to video 20
-
+- when updating a piece of state you need to not make a copy of that piece of state. 
+```jsx
+handleChange = event => {
+        console.log(event.currentTarget.value);
+        // update that fish
+        // 1. Take a copy of the current fish
+        const updatedFish = {
+            ...this.props.fish,
+            [event.currentTarget.name]: event.currentTarget.value // takes original fish and updates changes
+        };
+        this.props.updateFish(this.props.index, updatedFish)
+        // 2. 
+    };
+```
  
 
