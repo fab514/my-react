@@ -50,9 +50,18 @@ class App extends React.Component {
         // 1. Take a copy of the current state
         const fishes = { ...this.state.fishes };
         // 2. Update that state
-        fishes[key] = updatedFish;
+        fishes[key] = null; // you need to set the fish to null so it will show on fiirebase
         // 3. Set that to state
-        this.setState({ fishes });
+        this.setState({ fishes }); // set the new array without the deleted fish
+    };
+
+    deleteFish = (key) => {
+        // 1. Take a copy of state
+        const fishes = { ...this.state.fishes }; 
+        // 2. update that state 
+        fishes[key] = null; // must set the fish to null
+        // 3. update state
+        this.setState({ fishes }); // gives state the updated array
     };
 
     loadSampleFishes = () => {
@@ -67,6 +76,15 @@ class App extends React.Component {
         // 3. Call setState to update our state object
         this.setState({ order });
     };
+
+    removeFromOrder = key => {
+        // 1. take a copy of state
+        const order = { ...this.state.order };
+        // 2. Remove from order
+        delete order[key];
+        // 3. Call setState to update our state object
+        this.setState({ order });
+    }
 
     render() {
         return (
@@ -85,10 +103,11 @@ class App extends React.Component {
                         {/*Turn the fish input into an array which each will show the fish emoji, key (specific to react) will give each a unique identifier  */}
                     </ul>
                 </div>
-                <Order fishes={this.state.fishes} order={this.state.order} />
+                <Order fishes={this.state.fishes} order={this.state.order} removeFromOrder={this.removeFromOrder} />
                 <Inventory 
                 addFish={this.addFish} 
                 updateFish={this.updateFish}
+                deleteFish={this.deleteFish}
                 loadSampleFishes={this.loadSampleFishes}
                 fishes={this.state.fishes}
                 />
