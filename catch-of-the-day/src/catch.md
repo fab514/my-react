@@ -256,5 +256,56 @@ handleChange = event => {
         // 2. 
     };
 ```
- 
 
+## CRUD 
+- Create, Read, Update, Delete
+
+## Using CSS with Styles instead of SASS
+- Styles uses indentations for formatting (proper indentation needed or it will break)
+- You can still put in css normally by using colon and curly brackets
+ 
+## Order-enter, order-enter-active 
+- order enter is an animation that happens right away and order enter active will happen after (finished state)
+
+## Transform
+- transform: translateX(-120%) *order-enter
+- transform: translateX(0) *order-enter-active
+- The transform will begin at the left side of the screen and ends when it is in place
+- transition 5 second- after the 5 seconds the transform classes will be removed from the element. This is from the timeout enter exit in jsx not css.
+
+- The & is if you want to use multiple animations
+
+.order-enter  
+  transform: translateX(-120%)
+  transition 0.5s
+  max-height: 0 *max height of 0 starts from the default height size and grows to 60px below
+  padding 0 !important *!important overwrites any previous css
+  &.order-enter-active
+    max-height 60px
+    transform: translateX(0)
+    padding 2rem 0 !important
+
+.order-exit
+  transition 0.5s
+  transform: translateX(0)
+  &.order-exit-active
+    transform: translateX(120%) 
+    padding: 0 !important
+
+```jsx
+<TransitionGroup component="span" className="count">
+    <CSSTransition
+        classNames="count"
+        key={count} // create two seperate keys one for the original count and the other the number being replaced. count-enter 9, count-exit 8
+        timeout={{ enter: 5000, exit: 5000 }} // double curly brackets is to tell JSX we are using JS and the second set is object literal
+        >
+            <span>{count}</span>
+    </CSSTransition> 
+</TransitionGroup>                                
+lbs {fish.name}
+{formatPrice(count * fish.price)}
+<button onClick={() => this.props.removeFromOrder(key)}>
+    &times;
+    </button>
+```
+                        
