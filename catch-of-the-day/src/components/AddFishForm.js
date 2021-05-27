@@ -1,6 +1,8 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 class AddFishForm extends React.Component {
+  
   // Pull values from every input.
   // Let react manage rendering the dom, createRef works with react manage rendering systems
   nameRef = React.createRef();
@@ -9,6 +11,10 @@ class AddFishForm extends React.Component {
   descRef = React.createRef();
   imageRef = React.createRef();
 
+  static propTypes = {
+    addFish: PropTypes.func,
+  }
+  
   createFish = event => {
     // 1.  stop the form from submitting
     event.preventDefault();

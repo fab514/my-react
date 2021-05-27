@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types" // Prop Types is a type checker
 
 // The Header.js is a compnant that layouts the header of the menu
 const Header = props => ( // Stateless Function with a implicit return
@@ -18,5 +19,10 @@ const Header = props => ( // Stateless Function with a implicit return
         </h3>
     </header>
 );
+
+// PropTypes will enforce the property is the correct type.  
+Header.propTypes = {
+    tagline: PropTypes.string.isRequired
+}
 
 export default Header;

@@ -308,4 +308,36 @@ lbs {fish.name}
     &times;
     </button>
 ```
-                        
+
+## Prop Types
+- You can declare that a prop is a specific JS type. Default is optional.
+- optionalArray: PropTypes.array,
+- optionalBool: PropTypes.bool,
+- optionalFunc: PropTypes.func,
+- optionalNumber: PropTypes.number,
+- optionalObject: PropTypes.object,
+- optionalString: PropTypes.string,
+- optionalSymbol: PropTypes.symbol
+
+- Anything that can be rendered: numbers, strings, elements or an array(or fragment) containing these types.
+- optionalNode: PropTypes.node, 
+
+- A React Element 
+- optionalElement: PropTypes.element,
+
+- You can also declare that a prop is an instance of a class. This uses JS instance operator. 
+- optionalMessage: PropTypes.instanceOf(Message)
+
+- An object that could be one of many types
+- optionalUnion: PropTypes.oneOfType({
+    PropTypes.string, 
+    PropTypes.number, 
+    PropTypes.instanceOf(Message)
+})
+- An object taking a paticular shape
+optionalObjectWithShape: PropTypes.shape({
+    color: PropTypes.string, 
+    fontSize: PropTypes.number
+})
+- Whenever you use props it is best to stop and add a proptype for easier transition between developers. 
+
