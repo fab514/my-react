@@ -8,7 +8,7 @@ class StorePicker extends React.Component {
     myInput = React.createRef();
     // Use ref in react allows us to reference dom nodes on the page, ref called at line 26
     static propTypes = {
-        history: PropTypes.object,
+        history: PropTypes.object.isRequired,
     }
     goToStore = event => {
         // 1. Stop the form from submitting
